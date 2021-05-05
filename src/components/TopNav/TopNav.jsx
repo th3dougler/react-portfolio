@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Typography from "@material-ui/core/Typography";
-import { Box, Icon, IconButton } from "@material-ui/core";
+import { Box, Icon, IconButton, useTheme } from "@material-ui/core";
 import "./TopNav.css";
 
 export default function TopNav(props) {
@@ -12,31 +12,36 @@ export default function TopNav(props) {
       width: "100%",
       display: "flex",
       flexDirection: "row",
-      background: "transparent",
+      background: `#${theme.palette.background.default.split("#")[1]}80`,
       color: theme.palette.text.primary,
       transition: "background-color 0.5s linear, color 0.5s linear",
       height: "auto",
+      zIndex: 2,
     },
     grow: {
       flexGrow: 1,
     },
     heading: {
+      width: "100%",
       position: "fixed",
       textAlign: "center",
       left: "50%",
-      top: props.scrollPos ? 0 : "30%",
-      transform: "translate(-50%,0)",
+      top: props.atSplash() ? "50%" : 0,
+      transform: props.atSplash()
+        ? "translate(-50%,-50%)"
+        : "translate(-50%,0%)",
       transition:
-        "font-size 1s ease-in-out, top 1s ease-in-out,transform 1s ease-in-out",
+        "font-size 300ms ease-in-out, top 300ms ease-in-out,transform 300ms ease-in-out",
     },
     animateOpacity: {
       paddingTop: "3em",
-      opacity: props.scrollPos ? 0 : "100%",
-      fontSize: props.scrollPos ? 0 : theme.typography.body1.fontSize,
-      transition: "opacity 1s ease-in-out,font-size 1s ease-in-out",
+      opacity: props.atSplash() ? "100%" : 0,
+      fontSize: props.atSplash() ? "2.5em" : 0,
+      transition: "opacity 300ms ease-in-out,font-size 300ms ease-in-out",
     },
     animateFontSize: {
-      transition: "font-size 1s ease-in-out",
+      transition: "font-size 0.8s ease-in-out",
+      fontSize: props.atSplash() ? "4em" : "2em",
     },
 
     flexCtr: {
@@ -47,18 +52,15 @@ export default function TopNav(props) {
   }));
 
   const classes = useStyles();
-
+  const theme = useTheme();
   return (
     <div className={classes.root}>
       <Box className={classes.grow}>
         <Box className={classes.heading}>
-          <Typography
-            className={classes.animateFontSize}
-            variant={props.scrollPos ? "h4" : "h1"}
-            component='h1'>
+          <Typography className={classes.animateFontSize}>
             Doug Jones
           </Typography>
-          <Typography className={classes.animateOpacity} variant='body1'>
+          <Typography className={classes.animateOpacity}>
             Software Developer // Toronto
           </Typography>
         </Box>

@@ -1,39 +1,65 @@
-import { Box, Container, CssBaseline } from "@material-ui/core";
+import { Box, Container, CssBaseline, Icon } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+
 import {
   createMuiTheme,
   ThemeProvider,
   makeStyles,
 } from "@material-ui/core/styles";
-import { Switch, Route } from "react-router-dom";
-import { useMemo, useState, useEffect } from "react";
-import TopNav from "../../components/TopNav/TopNav";
-import { scrollPosition } from "../../util/WindowUtils";
-import About from "../../pages/About/About";
+import {
+  Switch,
+  Route,
+  Link as RouterLink,
+  useLocation,
+} from "react-router-dom";
+import { useMemo, useState } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./App.css";
 import "animate.css";
+import TopNav from "../../components/TopNav/TopNav";
+import About from "../../pages/About/About";
+import Work from "../../pages/Work/Work";
+import Contact from "../../pages/Contact/Contact";
+
+import Splash from "../Splash/Splash";
 
 function App() {
-  const scrollBreakpoint = 0.1;
-  let [scrollPos, setScrollPos] = useState(scrollPosition(scrollBreakpoint));
-  let updateScrollPos = () => {
-    setScrollPos(scrollPosition(scrollBreakpoint));
+  let location = useLocation();
+
+  let atSplash = () => {
+    return location.pathname === "/";
   };
-  useEffect(() => {
-    window.addEventListener("scroll", updateScrollPos);
-  }, []);
+  let atBottom = () => {
+    return getNext() === "/";
+  };
+  let getNext = () => {
+    switch (location.pathname) {
+      case "/":
+        return "/about";
+      case "/about":
+        return "/work";
+      case "/work":
+        return "/contact";
+
+      default:
+        return "/";
+    }
+  };
 
   const useStyles = makeStyles((theme) => ({
     root: {
       transition: "color 0.5s linear",
     },
-    navDown: {
-      fontSize: scrollPos ? 100 : 300,
+    container: {
       position: "fixed",
-      bottom: 0,
-      width: "100%",
-      transition: "font-size 1s ease-in-out, top 1s ease-in-out",
+      top: "100%",
+      left: "50%",
+      transform: "translate(-50%,-80%)",
+    },
+    navDown: {
+      fontSize: atSplash() ? 200 : 100,
+      transition:
+        "font-size 1s ease-in-out, top 1s ease-in-out,color 1s ease-in-out",
     },
 
     turnUp: {},
@@ -64,6 +90,7 @@ function App() {
       }),
     [darkMode]
   );
+  console.log(location);
   return (
     <div className='App'>
       <ThemeProvider theme={theme}>
@@ -72,21 +99,33 @@ function App() {
           <TopNav
             toggleDarkMode={toggleDarkMode}
             darkMode={darkMode}
-            scrollPos={scrollPos}
+            atSplash={atSplash}
           />
-          <Container maxWidth='sm'>
-            <Switch>
-              <Route to='/' render={(props) => <About {...props} />} />
-            </Switch>
+          <Container maxWidth='lg'>
+            <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                classNames='fade'
+                timeout={300}
+                unmountOnExit>
+                <Switch location={location}>
+                  <Route exact path='/' component={Splash} />
+                  <Route exact path='/about' component={About} />
+                  <Route exact path='/work' component={Work} />
+                  <Route exact path='/contact' component={Contact} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
           </Container>
-
-          <KeyboardArrowDownIcon
-            className={
-              scrollPos
-                ? classes.navDown
-                : `animate__animated animate__bounce animate__infinite ${classes.navDown}`
-            }
-          />
+          <RouterLink to={() => getNext()}>
+            <div className={classes.container}>
+              <Icon
+                style={{ color: theme.palette.text.primary }}
+                className={`animate__animated animate__flip animate__infinite animate__slower ${classes.navDown}`}>
+                {atBottom() ? "expand_less" : "expand_more"}
+              </Icon>
+            </div>
+          </RouterLink>
         </Box>
       </ThemeProvider>
     </div>
