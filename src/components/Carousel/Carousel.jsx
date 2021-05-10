@@ -13,50 +13,49 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: "San Francisco – Oakland Bay Bridge, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    label: "Not Hot Dog - Customer Loyalty Platform",
+    imgPath: "/nhd_thumb.png",
   },
   {
-    label: "Bird",
-    imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+    label: "Spotter - Crowdsourced Free Parking App",
+    imgPath: "/sp_thumb.png",
   },
   {
-    label: "Bali, Indonesia",
-    imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80",
+    label: "breadBox - Advanced Bread Recipe Development Tool",
+    imgPath: "/bb_thumb.png",
   },
   {
-    label: "NeONBRAND Digital Marketing, Las Vegas, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Goč, Serbia",
-    imgPath:
-      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
+    label: "Snake Byte - Re-Imagined Snake Game",
+    imgPath: "/sb_thumb.png",
   },
 ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
+    maxWidth: 599,
     flexGrow: 1,
   },
   header: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     height: 50,
     paddingLeft: theme.spacing(4),
     backgroundColor: theme.palette.background.default,
+    transition: "background-color 0.5s linear, color 0.5s linear",
   },
   img: {
-    height: 255,
     display: "block",
-    maxWidth: 400,
+    maxWidth: 600,
     overflow: "hidden",
+    borderRadius: "5%",
     width: "100%",
+  },
+  transition: {
+    transition: "background-color 0.5s linear, color 0.5s linear",
+  },
+  label: {
+    textAlign: "center",
   },
 }));
 
@@ -81,7 +80,9 @@ function Carousel(props) {
   return (
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
-        <Typography>{tutorialSteps[activeStep].label}</Typography>
+        <Typography className={classes.label}>
+          {tutorialSteps[activeStep].label}
+        </Typography>
       </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -105,6 +106,7 @@ function Carousel(props) {
         position='static'
         variant='text'
         activeStep={activeStep}
+        className={classes.transition}
         nextButton={
           <Button
             size='small'

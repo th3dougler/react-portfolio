@@ -1,5 +1,5 @@
-import { Box, Grid, Paper, Typography } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Box, Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "../../components/Carousel/Carousel";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     paddingTop: "10vh",
     paddingBottom: "10vh",
-    overflowY: "auto",
+    overflow: "hidden",
   },
   box: {
     height: "100%",
@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "center",
     padding: "2em",
   },
+  carouselContainer: {
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center",
+  },
 }));
 
 export default function Work(props) {
@@ -28,14 +33,14 @@ export default function Work(props) {
 
   return (
     <Box className={`Work ${classes.root}`}>
-      <Grid container spacing={8}>
+      <Grid container>
         <Grid item xs={12}>
           <Typography component='h2' variant='h5' gutterBottom>
             Projects
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.carouselContainer}>
           <Carousel />
         </Grid>
       </Grid>

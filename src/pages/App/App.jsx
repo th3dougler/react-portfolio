@@ -121,7 +121,11 @@ function App() {
             <div className={classes.container}>
               <Icon
                 style={{ color: theme.palette.text.primary }}
-                className={`animate__animated animate__flip animate__infinite animate__slower ${classes.navDown}`}>
+                className={
+                  atSplash()
+                    ? `animate__animated animate__bounce animate__infinite ${classes.navDown}`
+                    : classes.navDown
+                }>
                 {atBottom() ? "expand_less" : "expand_more"}
               </Icon>
             </div>
