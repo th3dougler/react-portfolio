@@ -29,9 +29,12 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     height: "100%",
+    borderRadius: "15px",
     "&:hover": {
       boxShadow: `0 0  5px ${theme.palette.text.disabled}`,
     },
+    display: "flex",
+    flexDirection: "row",
     transition:
       "background-color 0.5s linear, color 0.5s linear, box-shadow 0.5s linear",
   },

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     paddingTop: "10vh",
     paddingBottom: "10vh",
-    overflow: "hidden",
+    // overflow: "hidden",
   },
   box: {
     height: "100%",
@@ -28,7 +28,36 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
-
+let data = [
+  {
+    title: "Not Hot Dog",
+    subheader: "Customer loyalty and rewards platform",
+    thumb: "/nhd_thumb.png",
+    content:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro assumenda officia beatae dolores veritatis!",
+  },
+  {
+    title: "Spotter",
+    subheader: "Crowdsourced free parking app",
+    thumb: "/sp_thumb.png",
+    content:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro assumenda officia beatae dolores veritatis!",
+  },
+  {
+    title: "breadBox",
+    subheader: "Advanced bread recipe development tool",
+    thumb: "/bb_thumb.png",
+    content:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro assumenda officia beatae dolores veritatis!",
+  },
+  {
+    title: "Snake Byte",
+    subheader: "Classic Snake Game in Vanilla JS",
+    thumb: "/sb_thumb.png",
+    content:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro assumenda officia beatae dolores veritatis!",
+  },
+];
 export default function Work(props) {
   const classes = useStyles();
 
@@ -41,17 +70,17 @@ export default function Work(props) {
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6} lg>
-          <ProjectCard />
+          <ProjectCard data={data[0]} />
         </Grid>
 
         <Grid item xs={12} sm={6} lg>
-          <ProjectCard />
+          <ProjectCard data={data[1]} />
         </Grid>
         <Grid item xs={12} sm={6} lg>
-          <ProjectCard />
+          <ProjectCard data={data[2]} />
         </Grid>
         <Grid item xs={12} sm={6} lg>
-          <ProjectCard />
+          <ProjectCard data={data[3]} />
         </Grid>
       </Grid>
     </Box>
