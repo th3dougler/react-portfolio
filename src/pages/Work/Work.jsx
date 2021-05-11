@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Carousel from "../../components/Carousel/Carousel";
+import ProjectCard from "./ProjectCard";
+// import Carousel from "../../components/Carousel/Carousel";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -39,9 +40,18 @@ export default function Work(props) {
             Projects
           </Typography>
         </Grid>
+        <Grid item xs={12} sm={6} lg>
+          <ProjectCard />
+        </Grid>
 
-        <Grid item xs={12} className={classes.carouselContainer}>
-          <Carousel />
+        <Grid item xs={12} sm={6} lg>
+          <ProjectCard />
+        </Grid>
+        <Grid item xs={12} sm={6} lg>
+          <ProjectCard />
+        </Grid>
+        <Grid item xs={12} sm={6} lg>
+          <ProjectCard />
         </Grid>
       </Grid>
     </Box>

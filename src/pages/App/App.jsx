@@ -90,7 +90,6 @@ function App() {
       }),
     [darkMode]
   );
-  console.log(location);
   return (
     <div className='App'>
       <ThemeProvider theme={theme}>
