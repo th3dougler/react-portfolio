@@ -34,7 +34,7 @@ export default function Work(props) {
 
   return (
     <Box className={`Work ${classes.root}`}>
-      <Grid container>
+      <Grid container spacing={4}>
         <Grid item xs={12}>
           <Typography component='h2' variant='h5' gutterBottom>
             Projects
