@@ -109,7 +109,7 @@ function App() {
                 classNames='fade'
                 timeout={300}
                 unmountOnExit>
-                <Switch location={location} history={history}>
+                <Switch location={location}>
                   <Route exact path='/' component={Splash} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/work' component={Work} />

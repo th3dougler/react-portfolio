@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     transition: "background-color 0.5s linear, color 0.5s linear",
   },
   img: {
+    display: "block",
     maxWidth: 500,
     maxHeight: 500,
     marginLeft: "auto",
