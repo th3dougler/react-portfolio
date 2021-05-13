@@ -9,8 +9,7 @@ export default function DevIcon(props) {
       component={Box}
       display='flex'
       flexDirection='column'
-      justifyContent='center'
-      alignItems='center'>
+      justifyContent='center'>
       <i className={props.className} style={{ fontSize: "4em" }} />
       <Typography variant='caption'>{props.caption}</Typography>
     </Grid>

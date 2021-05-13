@@ -100,8 +100,8 @@ function App() {
             darkMode={darkMode}
             atSplash={atSplash}
           />
-          <Container maxWidth='lg'>
-            <TransitionGroup>
+          <Container maxWidth='lg' style={{ height: "100%" }}>
+            <TransitionGroup style={{ height: "100%" }}>
               <CSSTransition
                 key={location.key}
                 classNames='fade'

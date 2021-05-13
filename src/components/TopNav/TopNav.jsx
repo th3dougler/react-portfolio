@@ -1,8 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Typography from "@material-ui/core/Typography";
-import { Box, Icon, IconButton, useTheme } from "@material-ui/core";
+import { Box, Icon, IconButton } from "@material-ui/core";
 import "./TopNav.css";
+import ContextMenu from "./ContextMenu";
 
 export default function TopNav(props) {
   const useStyles = makeStyles((theme) => ({
@@ -26,7 +26,7 @@ export default function TopNav(props) {
       position: "fixed",
       textAlign: "center",
       left: "50%",
-      top: props.atSplash() ? "50%" : 0,
+      top: props.atSplash() ? "50%" : 5,
       transform: props.atSplash()
         ? "translate(-50%,-50%)"
         : "translate(-50%,0%)",
@@ -34,12 +34,13 @@ export default function TopNav(props) {
         "font-size 300ms ease-in-out, top 300ms ease-in-out,transform 300ms ease-in-out",
     },
     animateOpacity: {
-      paddingTop: "3em",
+      paddingTop: "1em",
       opacity: props.atSplash() ? "100%" : 0,
       fontSize: props.atSplash() ? "2.5em" : 0,
       transition: "opacity 300ms ease-in-out,font-size 300ms ease-in-out",
     },
     animateFontSize: {
+      lineHeight: "1",
       transition: "font-size 0.8s ease-in-out",
       fontSize: props.atSplash() ? "4em" : "2em",
     },
@@ -52,7 +53,6 @@ export default function TopNav(props) {
   }));
 
   const classes = useStyles();
-  const theme = useTheme();
   return (
     <div className={classes.root}>
       <Box className={classes.grow}>
@@ -61,7 +61,7 @@ export default function TopNav(props) {
             Doug Jones
           </Typography>
           <Typography className={classes.animateOpacity}>
-            Software Developer // Toronto
+            Software Developer - Toronto
           </Typography>
         </Box>
       </Box>
@@ -69,9 +69,7 @@ export default function TopNav(props) {
         <IconButton onClick={props.toggleDarkMode} edge='start' disableRipple>
           {props.darkMode ? <Icon>light_mode</Icon> : <Icon>dark_mode</Icon>}
         </IconButton>
-        <IconButton onClick={props.toggleDarkMode} edge='start' disableRipple>
-          <MoreVertIcon />
-        </IconButton>
+        <ContextMenu />
       </Box>
     </div>
   );

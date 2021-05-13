@@ -1,0 +1,87 @@
+Doug Jones
+Full Stack Developer
+
+Software developer; creating elegant, user friendly experiences with industry standard frameworks and technology. 
+
+I am eager to work for and grow with a company that has a strong culture of mentoring.
+
+
+CONTACT:
+Location: Toronto
+Cell: 647-774-3214
+Email: th3dougler@gmail.com
+  * Linkedin: https://www.linkedin.com/in/doug-jones2
+  * Github: https://github.com/th3dougler
+  * Profile: https://dougjones.ca
+
+SKILLS
+-  React
+-  Node.js /  Express
+-  Python / Django
+-  noSQL + SQL (MongoDB, Postgresql)
+-  Google Cloud / Amazon AWS
+-  JavaScript
+-  HTML5 & CSS
+-  Material Design
+-  Git / Github
+  
+  
+PROJECT WORK
+NotHotDog - Small Business Loyalty Rewards Program: https://hotnotdog.herokuapp.com - github.com/imaustinim/notHotDog
+    Use MERN stack and Material Design principles to develop modular loyalty card program
+    Implement noSQL cluster (MongoDB) and Heroku deployment. JWT User Authentication
+    Use 3rd party libraries for QR Code scanning / rendering
+    Advanced API / Webhooks features for QR redeption and React Hooks
+    Material UI front end library for advanced 
+    
+Spotter - Crowdsource Free Parking App: https://spotter-demo.herokuapp.com/ - github.com/th3dougler/freepark
+    Conceptualize, plan, and build in 7 days in tandem with UX/UI students.  
+    Implemented Python with Django framework and AWS SQL database
+    Use 3rd party map libs/API's and client side AJAX / Webhooks to provide smooth UI
+
+BreadBox - Advanced Bread Recipe Development Tool: https://breadbox.dougjones.ca - github.com/th3dougler/breadBox
+    Built full stack app in 7 days, implement noSQL database (MongoDB cluster)
+    Implement 3rd party libraries (Tabulator, Materialize CSS, Passport 0Auth)
+    Advanced data table functionality for designing complex (professional) bread recipes
+
+Snake Byte - Classic Snake Game in a Retro Themed Interface: th3dougler.github.io/snakeByte - github.com/th3dougler/snakeByte
+    A remake of the arcade classic Blockade
+    Developed in 7 days as a demonstration of clever DOM manipulation
+    Built in Vanilla JS, HTML5, and CSS3.  Using CSS sprites, and ES6 JS to create a smooth gameplay experience
+
+WORK EXPERIENCE
+
+  * April 2019 – January 2020
+    Bread Department Manager at Forno Cultura, Toronto
+      Hired, trained, and managed team of 10-12 people working across 3 properties.
+Implemented bakery management software that saved over 2 hrs from daily production and Activity Based Costing to determine maximum profitability of all products based on KPI's.
+
+  * August 2016 – July 2018
+    Head Baker at Drake Commissary, Toronto
+      Hired, trained and managed team of up to 15 people
+Implemented Activity Based Costing to structure product development and ensure maximum profitability based on volume and cost.
+Developed core systems of inventory management, cleaning, and training that are still in use
+
+
+EDUCATION
+  * February 2021 – April 2021
+    General Assembly, Toronto SEI Immersive
+    
+- Completed 3 month, 480 hr bootcamp with 4.0 GPA
+- Create and deploy full scale projects using Git and Heroku. Demonstrate CRUD features
+- Use version control and AGILE methodology to develop rapidly, iteratively and collaboratively
+
+  * September 2008 – September 2010
+    Ryerson University, Toronto BSc - Computer Science
+- Completed 12 course credits
+- Relevant classes:
+    Computer Science I , II
+    Discrete Mathematics I, II
+    Calculus and Computational Methods
+    Physics
+    Intro C and Unix
+
+AWARDS
+  * Participant in Go Studios Innovation Jam Hackaton 2021 to help people as they age in place
+
+

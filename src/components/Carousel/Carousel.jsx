@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import MobileStepper from "@material-ui/core/MobileStepper";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
@@ -11,29 +9,15 @@ import { autoPlay } from "react-swipeable-views-utils";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const tutorialSteps = [
-  {
-    label: "Not Hot Dog - Customer Loyalty Platform",
-    imgPath: "/nhd_thumb.png",
-  },
-  {
-    label: "Spotter - Crowdsourced Free Parking App",
-    imgPath: "/sp_thumb.png",
-  },
-  {
-    label: "breadBox - Advanced Bread Recipe Development Tool",
-    imgPath: "/bb_thumb.png",
-  },
-  {
-    label: "Snake Byte - Re-Imagined Snake Game",
-    imgPath: "/sb_thumb.png",
-  },
-];
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 599,
+    maxWidth: 500,
     flexGrow: 1,
+    display: "flex",
+    margin: "0 auto",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
   },
   header: {
     display: "flex",
@@ -45,11 +29,10 @@ const useStyles = makeStyles((theme) => ({
     transition: "background-color 0.5s linear, color 0.5s linear",
   },
   img: {
-    display: "block",
-    maxWidth: 600,
+    maxWidth: 500,
+    maxHeight: 500,
+    marginLeft: "auto",
     overflow: "hidden",
-    borderRadius: "5%",
-    width: "100%",
   },
   transition: {
     transition: "background-color 0.5s linear, color 0.5s linear",
@@ -63,7 +46,12 @@ function Carousel(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
+  let imageArr = [];
+  for (let i = 0; i < props.thumbs; i++) {
+    imageArr[i] = { key: i, imgPath: `${props.dir}/${i.toString()}.png` };
+  }
+
+  const maxSteps = imageArr.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -76,21 +64,15 @@ function Carousel(props) {
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
-
   return (
     <div className={classes.root}>
-      <Paper square elevation={0} className={classes.header}>
-        <Typography className={classes.label}>
-          {tutorialSteps[activeStep].label}
-        </Typography>
-      </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents>
-        {tutorialSteps.map((step, index) => (
-          <div key={step.label}>
+        {imageArr.map((step, index) => (
+          <div key={step.imgPath}>
             {Math.abs(activeStep - index) <= 2 ? (
               <img
                 className={classes.img}

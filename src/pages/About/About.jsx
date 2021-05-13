@@ -5,12 +5,16 @@ import DevIcon from "./DevIcon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "row",
     textAlign: "center",
-    height: "100vh",
-    paddingTop: "10vh",
-    paddingBottom: "10vh",
     overflowY: "auto",
     overflowX: "hidden",
+  },
+  gridContainer: {
+    paddingTop: "10vh",
+    paddingBottom: "10vh",
   },
   link: {
     color: theme.palette.text.secondary,
@@ -20,12 +24,6 @@ const useStyles = makeStyles((theme) => ({
       textShadow: `2px 2px 5px ${theme.palette.text.secondary}`,
     },
     transition: "color 0.5s linear, text-shadow 0.5s linear",
-  },
-  flexCtr: {
-    textAlign: "left",
-    justifySelf: "right",
-    alignSelf: "center",
-    padding: "2em",
   },
   box: {
     height: "100%",
@@ -44,7 +42,10 @@ export default function About(props) {
   const classes = useStyles();
   return (
     <Box className={`About ${classes.root}`}>
-      <Grid container spacing={4}>
+      <Grid
+        container
+        spacing={4}
+        className={`${classes.gridContainer} ${classes.root}`}>
         <Grid item xs={12}>
           <Typography component='h2' variant='h5' gutterBottom>
             a little bit about me...
