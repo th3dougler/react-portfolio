@@ -11,6 +11,7 @@ import {
   Route,
   Link as RouterLink,
   useLocation,
+  useHistory,
 } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -65,6 +66,7 @@ function App() {
     turnUp: {},
   }));
   const classes = useStyles();
+  const history = useHistory();
   let [darkMode, setDarkMode] = useState(
     useMediaQuery("(prefers-color-scheme: dark)")
   );
@@ -107,7 +109,7 @@ function App() {
                 classNames='fade'
                 timeout={300}
                 unmountOnExit>
-                <Switch location={location}>
+                <Switch location={location} history={history}>
                   <Route exact path='/' component={Splash} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/work' component={Work} />
