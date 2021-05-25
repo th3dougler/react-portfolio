@@ -1,0 +1,5 @@
+@media screen and (min-width: 600px) {
+  .TopNav .heading {
+    padding-top: 1.5em;
+  }
+}

@@ -60,7 +60,7 @@ let data = [
     subheader: "Classic Snake Game in Vanilla JS",
     dir: "/snakebyte",
     thumbs: 6,
-    deployed: "https://dougjones.ca/snakeByte/",
+    deployed: "https://th3dougler.github.io/snakeByte/",
     github: "https://github.com/th3dougler/snakeByte",
     content:
       "Built and deployed in one week, using vanilla JS, CSS3, and HTML5\n\nRather than using javascript canvas or other libraries, the project is meant to demonstrate DOM manipulation. I used CSS3 sprites and ES6 DOM manipulation exclusively to create smooth gameplay This is a simple snake game\n\n Designed to scale onto any device, supports touch displays as well as conventional keyboard input\n\n Collect 'bugs' and try not to trip over your own tail!",

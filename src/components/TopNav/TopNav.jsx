@@ -26,7 +26,7 @@ export default function TopNav(props) {
       position: "fixed",
       textAlign: "center",
       left: "50%",
-      top: props.atSplash() ? "50%" : 5,
+      top: props.atSplash() ? "50%" : 10,
       transform: props.atSplash()
         ? "translate(-50%,-50%)"
         : "translate(-50%,0%)",
@@ -54,9 +54,9 @@ export default function TopNav(props) {
 
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={`TopNav  ${classes.root}`}>
       <Box className={classes.grow}>
-        <Box className={classes.heading}>
+        <Box className={`heading  ${classes.heading}`}>
           <Typography className={classes.animateFontSize}>
             Doug Jones
           </Typography>

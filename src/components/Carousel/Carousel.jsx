@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     maxWidth: 500,
     maxHeight: 500,
-    marginLeft: "auto",
+    margin: "0 auto",
     overflow: "hidden",
   },
   transition: {
