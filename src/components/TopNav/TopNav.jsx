@@ -31,7 +31,7 @@ export default function TopNav(props) {
         ? "translate(-50%,-50%)"
         : "translate(-50%,0%)",
       transition:
-        "font-size 300ms ease-in-out, top 300ms ease-in-out,transform 300ms ease-in-out",
+        "font-size 500ms ease-in-out, top 500ms ease-in-out,transform 500ms ease-in-out",
     },
     animateOpacity: {
       paddingTop: "1em",
