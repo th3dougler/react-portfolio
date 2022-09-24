@@ -22,29 +22,12 @@ export default function TopNav(props) {
       flexGrow: 1,
     },
     heading: {
-      width: "100%",
-      position: "fixed",
-      textAlign: "center",
+      position: "absolute",
       left: "50%",
-      top: props.atSplash() ? "50%" : 10,
-      transform: props.atSplash()
-        ? "translate(-50%,-50%)"
-        : "translate(-50%,0%)",
-      transition:
-        "font-size 500ms ease-in-out, top 500ms ease-in-out,transform 500ms ease-in-out",
+      transform: "translateX(-50%)",
+      opacity: props.atSplash() ? 0 : 1,
+      transition: "opacity 300ms ease-in-out",
     },
-    animateOpacity: {
-      paddingTop: "1em",
-      opacity: props.atSplash() ? "100%" : 0,
-      fontSize: props.atSplash() ? "2.5em" : 0,
-      transition: "opacity 300ms ease-in-out,font-size 300ms ease-in-out",
-    },
-    animateFontSize: {
-      lineHeight: "1",
-      transition: "font-size 0.8s ease-in-out",
-      fontSize: props.atSplash() ? "4em" : "2em",
-    },
-
     flexCtr: {
       display: "flex",
       alignItems: "center",
@@ -56,14 +39,9 @@ export default function TopNav(props) {
   return (
     <div className={`TopNav  ${classes.root}`}>
       <Box className={classes.grow}>
-        <Box className={`heading  ${classes.heading}`}>
-          <Typography className={classes.animateFontSize}>
-            Doug Jones
-          </Typography>
-          <Typography className={classes.animateOpacity}>
-            Software Developer - Toronto
-          </Typography>
-        </Box>
+        <Typography variant='h5' className={classes.heading}>
+          Doug Jones
+        </Typography>
       </Box>
       <Box className={classes.flexCtr}>
         <IconButton onClick={props.toggleDarkMode} edge='start' disableRipple>
