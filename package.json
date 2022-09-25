@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "16.x"
+    "node": "16.13.0"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
@@ -19,8 +19,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "serve": "serve build",
+    "start": "serve -d build",
+    "dev:start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

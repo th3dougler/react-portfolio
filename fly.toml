@@ -1,6 +1,6 @@
-# fly.toml file generated for falling-dawn-5941 on 2022-09-24T13:09:12-04:00
+# fly.toml file generated for wandering-meadow-8958 on 2022-09-24T13:30:55-04:00
 
-app = "falling-dawn-5941"
+app = "wandering-meadow-8958"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
